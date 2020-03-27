@@ -1,15 +1,14 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3.7
 
 # Find next occurance of X
 
-# Test Case list
-mySexyList = ['c', 'z', 'd', 'r', 'd', 'q', 't', 'p', 'd', 'a', 't', 'd', 'z'];
+import random, string
 
 class FindNext:
 	
 	def __init__ ( self, myList ):
 		self.myList = myList;
-		print ( self.myList );
+		#print ( self.myList );
 		
 	def theDuplicates(self):
 		testMe="";
@@ -18,9 +17,6 @@ class FindNext:
 		duplicatesList = [];
 		# List of indexes
 		listOfIndexes = [];
-		# List length
-		listLength = len( mainList );
-		#print  ("listLength: {}".format(listLength) );
 		
 		# Loop over list and create array of dumplicates
 		while mainList:
@@ -30,9 +26,6 @@ class FindNext:
 			for checkMe in mainList:
 				if testMe == checkMe:
 					duplicatesList.append( testMe );
-					#print  (" Pos: {}".format( mainList.index( testMe ) ) );
-					#print  (" mainList Length: {}".format( len(mainList) ) );
-					#print  (" mainList : {}".format( mainList ) );
 
 					# Remove the found object from the mainList
 					mainList.pop ( mainList.index( testMe ) );
@@ -40,8 +33,6 @@ class FindNext:
 					# Exit for loop or it will continue to test positive for multiple matches
 					break;
 					
-					
-		print  ( duplicatesList );
 		return duplicatesList;
 	
 	def getIndexOfDuplicates(self):
@@ -70,7 +61,7 @@ class FindNext:
 			if len ( uniqueElemDictionary[x] ) == 0:
 				del uniqueElemDictionary[x];
 
-		print  ("uniqueElemDictionary :: {} copyOfDuplicatesList :: {}".format( uniqueElemDictionary, copyOfDuplicatesList ) );
+		#print  ("uniqueElemDictionary :: {} copyOfDuplicatesList :: {}".format( uniqueElemDictionary, copyOfDuplicatesList ) );
 		return uniqueElemDictionary, copyOfDuplicatesList;
 				
 	def presentData(self):
@@ -81,18 +72,31 @@ class FindNext:
 		
 		for x in copyOfDuplicatesList:
 			# Assign the first two values of the list to the each element in duplicate list 
-			#print ( uniqueElemDictionary[x][0:2] );
 			presentingTheData.append( [x] + uniqueElemDictionary[x][0:2] );
 			del uniqueElemDictionary[x][0:2];
 
-		print ( presentingTheData );
 		return presentingTheData;
 
+def testingProcedure( howMany ):
+	alphabetList = list ( string.ascii_lowercase );
+	randomNumbersList = [ random.randrange(0, len ( alphabetList ) , 1) for i in range( howMany )  ];
+	shuffledListOfCharacters = [ alphabetList [ ranNum ] for ranNum in randomNumbersList  ]; 
+	
+	return ( shuffledListOfCharacters );
+	
 def main():
-	testing = FindNext( mySexyList );
-	#testing.theDuplicates();
-	#testing.getIndexOfDuplicates();
-	testing.presentData();
+	
+	# Test Case list
+	mySexyList = ['c', 'z', 'd', 'r', 'd', 'q', 't', 'p', 'd', 'a', 't', 'd', 'z'];
+	
+	tmp = testingProcedure( 13 );
+	print ( tmp );
+	
+	testing = FindNext( tmp );
+	#testing = FindNext( mySexyList );
+	print ( testing.theDuplicates() );
+	print ( testing.getIndexOfDuplicates() );
+	print ( testing.presentData() );
 	
 if __name__ == "__main__":
 	main();
