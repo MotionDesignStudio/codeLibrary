@@ -15,8 +15,6 @@ class FindNext:
 		mainList = self.myList.copy();
 		# List of duplicates
 		duplicatesList = [];
-		# List of indexes
-		listOfIndexes = [];
 		
 		# Loop over list and create array of dumplicates
 		while mainList:
@@ -56,7 +54,7 @@ class FindNext:
 				# If that value is the same as the current key save the position in the array
 				if y == x:
 					uniqueElemDictionary[x].append(counter);	
-			
+			# VIP start ing with Python 3.7 Dictionary remains in order entered
 			# cleanup and save memeory by removing empty dictionaries
 			if len ( uniqueElemDictionary[x] ) == 0:
 				del uniqueElemDictionary[x];
@@ -89,14 +87,15 @@ def main():
 	# Test Case list
 	mySexyList = ['c', 'z', 'd', 'r', 'd', 'q', 't', 'p', 'd', 'a', 't', 'd', 'z'];
 	
-	tmp = testingProcedure( 13 );
-	print ( tmp );
+	#tmp = testingProcedure( 13 );
+	#print ( tmp );
+	print ( mySexyList );
 	
-	testing = FindNext( tmp );
-	#testing = FindNext( mySexyList );
-	print ( testing.theDuplicates() );
+	#testing = FindNext( tmp );
+	testing = FindNext( mySexyList );
+	#print ( testing.theDuplicates() );
 	print ( testing.getIndexOfDuplicates() );
-	print ( testing.presentData() );
+	#print ( testing.presentData() );
 	
 if __name__ == "__main__":
 	main();
