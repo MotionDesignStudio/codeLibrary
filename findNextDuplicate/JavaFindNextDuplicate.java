@@ -134,14 +134,17 @@ class JavaFindNextDuplicate
 				
 			}
 			
+			// cleanup and save memeory by removing empty dictionaries
+			if ( uniqueElemDictionary.get(x).size() == 0){
+				uniqueElemDictionary.remove( x );
+			}
+		
 		}
-			
-		System.out.printf("XXX uniqueElemDictionary :: %s%n", uniqueElemDictionary );
+	
+		//System.out.printf("XXX uniqueElemDictionary :: %s%n", uniqueElemDictionary );
 		return new getIndexOfDuplicates( uniqueElemDictionary, copyOfDuplicatesList );
 	}
-	
-
-	
+		
 	
 	
 	public static void main ( String args[])
@@ -156,7 +159,7 @@ class JavaFindNextDuplicate
 		JavaFindNextDuplicate testing = new JavaFindNextDuplicate ( mySexyList );
 		System.out.printf("%s%n", testing.theDuplicates() );
 		
-		System.out.printf("%s%n", testing.getIndexOfDuplicates2() );
+		System.out.printf("%s%n", testing.getIndexOfDuplicates2().uniqueElemDictionary );
 
 		//System.out.printf("%s%n", testing.discardDuplicateSet() );
 	}
