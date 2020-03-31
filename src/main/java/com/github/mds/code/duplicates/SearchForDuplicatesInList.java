@@ -1,16 +1,16 @@
-
+package com.github.mds.code.duplicates;
 /* A map of movie critics and their ratings of a small set of movies */
 
 import java.util.*;
 
-class JavaSearchForDuplicatesInList
+public class SearchForDuplicatesInList
 {
 	
 	// Instance Variables
 	Map<String, Map<String, Double>> myCritics;
 	
 	// Constructor Declaration of Class 
-	public JavaSearchForDuplicatesInList ( Map myCritics )
+	public SearchForDuplicatesInList ( Map myCritics )
 	{
 		this.myCritics = myCritics;
 	}
@@ -107,7 +107,7 @@ class JavaSearchForDuplicatesInList
 		critics.put ("Jack Matthews", Map.of("Lady in the Water", 3.0, "Snakes on a Plane", 4.0, "The Night Listener", 3.0, "Superman Returns", 5.0, "You, me and Dupree", 3.5 ) ); 
 		critics.put ("Toby", Map.of("Snakes on a Plane",4.5,"You, Me and Dupree",1.0,"Superman Returns",4.0 ) );
 		
-		JavaSearchForDuplicatesInList testing = new JavaSearchForDuplicatesInList ( critics );
+		SearchForDuplicatesInList testing = new SearchForDuplicatesInList ( critics );
 		//System.out.printf("%s%n", testing.buildSetMovies() );
 		
 		//System.out.printf("%s%n", testing.searchForDuplicates() );
